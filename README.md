@@ -31,3 +31,6 @@ Este projeto está licenciado sob a licença MIT.
 
 ## Contato
 Para mais informações, entre em contato via falecom@fortalezadigital.net
+
+
+### Obs.: Recomendo testar e analisar cada prática. Pode conter erros. Se quiser coloborar, fique a vontade.
