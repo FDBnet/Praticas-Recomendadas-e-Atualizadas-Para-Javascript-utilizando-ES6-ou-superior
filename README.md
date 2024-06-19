@@ -24,11 +24,11 @@ git clone https://github.com/FDBnet/Tabela-com-Praticas-Recomendadas-e-Atualizad
 
 ## Contribuindo
 - Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
-
+- Pode conter erros, portanto, fique a vontade caso deseje colaborar com a adição de uma outra prática diferente ou a correção de alguma das já listadas.
+- 
 
 ## Licença
 Este projeto está licenciado sob a licença MIT. 
-- Pode conter erros, portanto, fique a vontade caso deseje colaborar com a adição de uma outra prática diferente ou a correção de alguma das já listadas.
 
 ## Contato
 Para mais informações, entre em contato via falecom@fortalezadigital.net
