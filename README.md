@@ -20,8 +20,7 @@ git clone https://github.com/FDBnet/Tabela-com-Praticas-Recomendadas-e-Atualizad
 - Ou abra o arquivo HTML *praticas-recomendadas-em-JS-correto.html* no seu navegador para visualizar a tabela de melhores práticas.
 - Ou utilize o arquivo JSON *praticas-recomendadas-em-JS-correto.json* para usar como referência ou base.
 - Ou utilize o arquivo CSV *praticas-recomendadas-em-JS-correto.csv* para visualizar como planilha ou usar como referência ou base.
-
-
+- Além disso, foi adicionado um PDF (*praticas-recomendadas-em-JS-correto.pdf*) que pode ser útil para quem quer apenas ler.
 
 ## Contribuindo
 - Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
