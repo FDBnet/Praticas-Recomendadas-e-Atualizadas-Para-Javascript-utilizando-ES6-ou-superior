@@ -1,6 +1,6 @@
 # Melhores Práticas em JavaScript (2024)
 
-Este repositório contém um conjunto de 124 melhores práticas em JavaScript atualizadas para 2024, com foco em desempenho, segurança, manutenibilidade e eficiência.
+Este repositório contém um conjunto de #134# melhores práticas em JavaScript atualizadas para 2024, com foco em desempenho, segurança, manutenibilidade e eficiência.
 
 ## Tabela de Melhores Práticas
 
