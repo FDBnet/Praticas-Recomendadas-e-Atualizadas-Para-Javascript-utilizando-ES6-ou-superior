@@ -25,15 +25,15 @@
   },
   {
     "Antigo": "arr.filter(Boolean);",
-    "Atual": "arr.filter(el => el);",
+    "Atual": "arr.filter(el =\u003E el);",
     "Quando": "Para remover valores falsy de arrays",
     "Local de Uso": "Manipulação de arrays",
     "Motivo Específico": "Sintaxe mais clara e eficiente",
     "Quando Não Usar Nenhuma": "Quando não há necessidade de remover valores falsy"
   },
   {
-    "Antigo": "arr.map(el => el * 2);",
-    "Atual": "arr.map(el => el * 2).filter(el => el > 2);",
+    "Antigo": "arr.map(el =\u003E el * 2);",
+    "Atual": "arr.map(el =\u003E el * 2).filter(el =\u003E el \u003E 2);",
     "Quando": "Para transformar e filtrar arrays",
     "Local de Uso": "Manipulação de arrays",
     "Motivo Específico": "Sintaxe mais clara e eficiente",
@@ -56,8 +56,8 @@
     "Quando Não Usar Nenhuma": "Quando não há necessidade de aplanar arrays"
   },
   {
-    "Antigo": "array.flatMap(x => [x * 2]);",
-    "Atual": "const flatMappedArray = array.flatMap(x => [x, x * 2]);",
+    "Antigo": "array.flatMap(x =\u003E [x * 2]);",
+    "Atual": "const flatMappedArray = array.flatMap(x =\u003E [x, x * 2]);",
     "Quando": "Para transformar e aplanar arrays",
     "Local de Uso": "Manipulação de arrays",
     "Motivo Específico": "Sintaxe mais clara e eficiente",
@@ -152,16 +152,16 @@
     "Quando Não Usar Nenhuma": "Quando não há necessidade de logging em produção"
   },
   {
-    "Antigo": "const arr = [1, 2, 3]; const newArr = arr.map(x => x * 2);",
-    "Atual": "const newArr = arr.flatMap(x => [x, x * 2]);",
+    "Antigo": "const arr = [1, 2, 3]; const newArr = arr.map(x =\u003E x * 2);",
+    "Atual": "const newArr = arr.flatMap(x =\u003E [x, x * 2]);",
     "Quando": "Para manipular arrays de forma eficiente",
     "Local de Uso": "Manipulação de arrays",
     "Motivo Específico": "Sintaxe mais eficiente e legível",
     "Quando Não Usar Nenhuma": "Quando não há necessidade de manipular arrays"
   },
   {
-    "Antigo": "const arr = [1, 2, 3]; const newArr = arr.map(x => x * 2);",
-    "Atual": "const newArr = arr.flatMap(x => [x, x * 2]);",
+    "Antigo": "const arr = [1, 2, 3]; const newArr = arr.map(x =\u003E x * 2);",
+    "Atual": "const newArr = arr.flatMap(x =\u003E [x, x * 2]);",
     "Quando": "Para transformar e aplanar arrays",
     "Local de Uso": "Manipulação de arrays",
     "Motivo Específico": "Sintaxe mais clara e eficiente",
@@ -184,7 +184,7 @@
     "Quando Não Usar Nenhuma": "Quando não há necessidade de extrair valores"
   },
   {
-    "Antigo": "const entries = Object.keys(obj).map(key => [key, obj[key]]);",
+    "Antigo": "const entries = Object.keys(obj).map(key =\u003E [key, obj[key]]);",
     "Atual": "const entries = Object.entries(obj);",
     "Quando": "Para obter pares chave-valor de um objeto",
     "Local de Uso": "Manipulação de objetos",
@@ -216,8 +216,8 @@
     "Quando Não Usar Nenhuma": "Quando não há necessidade de desestruturar objetos"
   },
   {
-    "Antigo": "const newArr = []; arr.forEach(item => newArr.push(item * 2));",
-    "Atual": "const newArr = arr.map(item => item * 2);",
+    "Antigo": "const newArr = []; arr.forEach(item =\u003E newArr.push(item * 2));",
+    "Atual": "const newArr = arr.map(item =\u003E item * 2);",
     "Quando": "Para transformar elementos de um array",
     "Local de Uso": "Transformação de arrays",
     "Motivo Específico": "Sintaxe mais clara e eficiente",
@@ -305,7 +305,7 @@
   },
   {
     "Antigo": "const response = await fetch(url); const data = await response.json();",
-    "Atual": "const data = await fetch(url).then(response => response.json());",
+    "Atual": "const data = await fetch(url).then(response =\u003E response.json());",
     "Quando": "Para simplificar chamadas de API assíncronas",
     "Local de Uso": "Requisições HTTP assíncronas",
     "Motivo Específico": "Sintaxe mais clara e eficiente",
@@ -368,7 +368,7 @@
     "Quando Não Usar Nenhuma": "Atribuição de valores"
   },
   {
-    "Antigo": "const values = Object.keys(obj).map(key => obj[key]);",
+    "Antigo": "const values = Object.keys(obj).map(key =\u003E obj[key]);",
     "Atual": "const values = Object.values(obj);",
     "Quando": "Para obter valores de um objeto",
     "Local de Uso": "Manipulação de objetos",
@@ -577,14 +577,14 @@
   },
   {
     "Antigo": "function",
-    "Atual": "Arrow functions (=>)",
+    "Atual": "Arrow functions (=\u003E)",
     "Quando": "Para funções anônimas e manter o contexto do this",
     "Local de Uso": "Funções anônimas e callbacks",
     "Motivo Específico": "Manter o contexto de this e sintaxe mais concisa",
     "Quando Não Usar Nenhuma": "Quando não há necessidade de criar funções dinâmicas"
   },
   {
-    "Antigo": "function getData() { return new Promise((resolve, reject) => { ... }); }",
+    "Antigo": "function getData() { return new Promise((resolve, reject) =\u003E { ... }); }",
     "Atual": "async function getData() { ... }",
     "Quando": "Para lidar com promessas de forma mais simples e legível",
     "Local de Uso": "Funções assíncronas",
@@ -592,8 +592,8 @@
     "Quando Não Usar Nenhuma": "Quando não há necessidade de operações assíncronas"
   },
   {
-    "Antigo": "function resolveAfter2Seconds(x) { return new Promise(resolve => setTimeout(() => resolve(x), 2000)); }",
-    "Atual": "async function resolveAfter2Seconds(x) { return await new Promise(resolve => setTimeout(() => resolve(x), 2000)); }",
+    "Antigo": "function resolveAfter2Seconds(x) { return new Promise(resolve =\u003E setTimeout(() =\u003E resolve(x), 2000)); }",
+    "Atual": "async function resolveAfter2Seconds(x) { return await new Promise(resolve =\u003E setTimeout(() =\u003E resolve(x), 2000)); }",
     "Quando": "Para lidar com operações assíncronas de forma mais legível e gerenciável",
     "Local de Uso": "Operações assíncronas complexas",
     "Motivo Específico": "Melhor legibilidade e manejo de fluxos assíncronos",
@@ -601,7 +601,7 @@
   },
   {
     "Antigo": "function sum(a, b) { return a + b; }",
-    "Atual": "const sum = (a, b) => a + b;",
+    "Atual": "const sum = (a, b) =\u003E a + b;",
     "Quando": "Para funções anônimas e manter o contexto do this",
     "Local de Uso": "Funções anônimas e callbacks",
     "Motivo Específico": "Manter o contexto de this e sintaxe mais concisa",
@@ -625,7 +625,7 @@
   },
   {
     "Antigo": "Function.prototype.bind",
-    "Atual": "Arrow functions (=>)",
+    "Atual": "Arrow functions (=\u003E)",
     "Quando": "Para preservar o contexto de this de forma mais concisa e legível",
     "Local de Uso": "Preservar contexto de this",
     "Motivo Específico": "Sintaxe mais concisa e legível para funções anônimas",
@@ -737,7 +737,7 @@
   },
   {
     "Antigo": "let xhr = new XMLHttpRequest();",
-    "Atual": "fetch(url).then(response => response.json()).then(data => console.log(data));",
+    "Atual": "fetch(url).then(response =\u003E response.json()).then(data =\u003E console.log(data));",
     "Quando": "Para fazer requisições assíncronas de forma mais simples e moderna",
     "Local de Uso": "Requisições HTTP assíncronas",
     "Motivo Específico": "Simplicidade e promessa embutida para melhor gerenciamento de requisições",
@@ -816,8 +816,8 @@
     "Quando Não Usar Nenhuma": "Quando não há necessidade de copiar ou combinar objetos e arrays"
   },
   {
-    "Antigo": "Object.entries(obj).forEach(([key, value]) => { obj[key] = value; });",
-    "Atual": "Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, value]));",
+    "Antigo": "Object.entries(obj).forEach(([key, value]) =\u003E { obj[key] = value; });",
+    "Atual": "Object.fromEntries(Object.entries(obj).map(([key, value]) =\u003E [key, value]));",
     "Quando": "Para transformar pares chave-valor em um objeto",
     "Local de Uso": "Manipulação de objetos",
     "Motivo Específico": "Sintaxe mais clara e eficiente",
@@ -825,7 +825,7 @@
   },
   {
     "Antigo": "Object.getOwnPropertyDescriptors(obj);",
-    "Atual": "Object.entries(obj).reduce((descriptors, [key, value]) => { descriptors[key] = { value }; return descriptors; }, {});",
+    "Atual": "Object.entries(obj).reduce((descriptors, [key, value]) =\u003E { descriptors[key] = { value }; return descriptors; }, {});",
     "Quando": "Para obter descritores de propriedades",
     "Local de Uso": "Manipulação de objetos",
     "Motivo Específico": "Sintaxe mais eficiente",
@@ -840,16 +840,16 @@
     "Quando Não Usar Nenhuma": "Quando não há necessidade de verificar propriedades de objetos"
   },
   {
-    "Antigo": "Promise.resolve().then(() => { ... });",
-    "Atual": "async () => { ... }",
+    "Antigo": "Promise.resolve().then(() =\u003E { ... });",
+    "Atual": "async () =\u003E { ... }",
     "Quando": "Para operações assíncronas",
     "Local de Uso": "Funções assíncronas",
     "Motivo Específico": "Simplificação de operações assíncronas",
     "Quando Não Usar Nenhuma": "Quando não há necessidade de operações assíncronas"
   },
   {
-    "Antigo": "promise.then(() => { /* success / }).catch(() => { / error / }).finally(() => { / always */ });",
-    "Atual": "promise.finally(() => { /* always */ });",
+    "Antigo": "promise.then(() =\u003E { /* success / }).catch(() =\u003E { / error / }).finally(() =\u003E { / always */ });",
+    "Atual": "promise.finally(() =\u003E { /* always */ });",
     "Quando": "Para garantir que ações de limpeza sejam executadas independentemente do resultado da promessa",
     "Local de Uso": "Qualquer lugar onde promessas são usadas e necessitam de um bloco final de limpeza",
     "Motivo Específico": "Reduz a duplicação de código",
@@ -897,7 +897,7 @@
   },
   {
     "Antigo": "switch (response.status) { case 200: handleSuccess(); break; case 404: handleNotFound(); break; default: handleError(); }",
-    "Atual": "match (response.status) { when 200 -> handleSuccess(), when 404 -> handleNotFound(), when _ -> handleError() }",
+    "Atual": "match (response.status) { when 200 -\u003E handleSuccess(), when 404 -\u003E handleNotFound(), when _ -\u003E handleError() }",
     "Quando": "Para lógica condicional complexa",
     "Local de Uso": "Controle de fluxo",
     "Motivo Específico": "Sintaxe mais clara e menos propensa a erros",
@@ -990,5 +990,85 @@
     "Local de Uso": "Requisições HTTP assíncronas",
     "Motivo Específico": "Simplificar escrita de código assíncrono e melhorar legibilidade",
     "Quando Não Usar Nenhuma": "Quando não há necessidade de fazer requisições HTTP"
+  },
+  {
+    "Antigo": "Promise.all",
+    "Atual": "Promise.allSettled",
+    "Quando": "Para lidar com múltiplas promessas, mesmo que algumas sejam rejeitadas",
+    "Local de Uso": "Operações assíncronas em paralelo",
+    "Motivo Específico": "Obter resultados de todas as promessas, independentemente de sua resolução ou rejeição",
+    "Quando Não Usar Nenhuma": "Quando é necessário que todas as promessas sejam resolvidas para prosseguir"
+  },
+  {
+    "Antigo": "localStorage",
+    "Atual": "IndexedDB ou outras soluções de armazenamento modernas",
+    "Quando": "Para armazenamento de dados do lado do cliente, especialmente para grandes quantidades de dados estruturados",
+    "Local de Uso": "Aplicativos web que requerem armazenamento local avançado",
+    "Motivo Específico": "Melhor desempenho, capacidade e recursos para armazenamento local",
+    "Quando Não Usar Nenhuma": "Quando o armazenamento de dados é simples e limitado"
+  },
+  {
+    "Antigo": "Callbacks aninhados (callback hell)",
+    "Atual": "Async/await com tratamento de erros try/catch",
+    "Quando": "Para simplificar e melhorar a legibilidade do código assíncrono",
+    "Local de Uso": "Funções assíncronas complexas",
+    "Motivo Específico": "Evitar o aninhamento excessivo de callbacks e melhorar a clareza do fluxo de controle",
+    "Quando Não Usar Nenhuma": "Quando não há operações assíncronas complexas"
+  },
+  {
+    "Antigo": "Navegação por âncoras (#)",
+    "Atual": "API History",
+    "Quando": "Para navegação em SPAs (Single Page Applications)",
+    "Local de Uso": "Aplicativos web de página única",
+    "Motivo Específico": "Melhor controle sobre o histórico de navegação e URLs mais limpas",
+    "Quando Não Usar Nenhuma": "Quando a navegação tradicional por âncoras é suficiente"
+  },
+  {
+    "Antigo": "CSS em linha",
+    "Atual": "CSS-in-JS ou CSS Modules",
+    "Quando": "Para estilos com escopo e melhor integração com JavaScript",
+    "Local de Uso": "Aplicativos web modernos com componentização",
+    "Motivo Específico": "Melhor gerenciamento de estilos, escopo e dinâmica com JavaScript",
+    "Quando Não Usar Nenhuma": "Quando os estilos são simples e não requerem escopo ou dinamicidade"
+  },
+  {
+    "Antigo": "Renderização no servidor (SSR) com templates",
+    "Atual": "Renderização no servidor (SSR) com frameworks JavaScript (Next.js, Nuxt.js, etc.)",
+    "Quando": "Para melhorar o desempenho, SEO e experiência do usuário em aplicativos web",
+    "Local de Uso": "Aplicativos web que requerem renderização no servidor",
+    "Motivo Específico": "Melhor desempenho, SEO e experiência do usuário com ferramentas modernas de SSR",
+    "Quando Não Usar Nenhuma": "Quando a renderização no cliente é suficiente"
+  },
+  {
+    "Antigo": "Testes manuais",
+    "Atual": "Testes automatizados (unitários, integração, e2e)",
+    "Quando": "Para garantir a qualidade e confiabilidade do código",
+    "Local de Uso": "Em todo o ciclo de desenvolvimento",
+    "Motivo Específico": "Detectar regressões, melhorar a confiabilidade e facilitar a manutenção",
+    "Quando Não Usar Nenhuma": "Quando o projeto é muito pequeno ou os testes manuais são suficientes"
+  },
+  {
+    "Antigo": "Polling para atualizações em tempo real",
+    "Atual": "WebSockets, Server-Sent Events (SSE) ou WebRTC",
+    "Quando": "Para comunicação em tempo real eficiente entre cliente e servidor",
+    "Local de Uso": "Aplicativos web que requerem atualizações em tempo real",
+    "Motivo Específico": "Melhor desempenho e eficiência na comunicação em tempo real",
+    "Quando Não Usar Nenhuma": "Quando atualizações em tempo real não são necessárias"
+  },
+  {
+    "Antigo": "Bibliotecas de UI (Bootstrap, Material-UI, etc.) com sobrescrita de estilos",
+    "Atual": "Sistemas de design (Design Systems) com componentes reutilizáveis",
+    "Quando": "Para manter consistência visual e facilitar a manutenção em grandes aplicativos",
+    "Local de Uso": "Aplicativos web de grande escala com múltiplas equipes",
+    "Motivo Específico": "Melhorar a consistência, reutilização e manutenibilidade da interface do usuário",
+    "Quando Não Usar Nenhuma": "Quando o aplicativo é pequeno ou não requer uma identidade visual forte"
+  },
+  {
+    "Antigo": "Renderização no cliente (Client-Side Rendering) para todos os casos",
+    "Atual": "Renderização híbrida (SSR + CSR) com base em rotas ou componentes",
+    "Quando": "Para equilibrar desempenho, SEO e interatividade",
+    "Local de Uso": "Aplicativos web modernos com requisitos variados",
+    "Motivo Específico": "Aproveitar os benefícios de SSR e CSR onde mais apropriado",
+    "Quando Não Usar Nenhuma": "Quando o aplicativo é completamente estático ou completamente interativo"
   }
 ]
