@@ -7,7 +7,7 @@ Este repositório contém um conjunto de 124 melhores práticas em JavaScript at
 A tabela apresenta as práticas recomendadas para substituir práticas antigas por abordagens mais modernas e eficientes.
 
 ### Utilizar a Tabela de Práticas
-#### A tabela completa está no arquivo *praticas-recomendadas-em-JS-correto.html* deste repositório.
+#### A tabela completa está em um dos arquivos chamados de "*praticas-recomendadas-em-JS-correto*" deste repositório. Escolha entre os formatos: _HTML_ (<table>), _CSV_ (planilha) e/ou _JSON_.
 
 #### Como Utilizar
 
