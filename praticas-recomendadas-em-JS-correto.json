@@ -1,0 +1,994 @@
+[
+  {
+    "Antigo": "==",
+    "Atual": "===",
+    "Quando": "Para comparações rigorosas em JavaScript",
+    "Local de Uso": "Comparações rigorosas",
+    "Motivo Específico": "Evitar erros de tipo nas comparações em JavaScript",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de comparações rigorosas"
+  },
+  {
+    "Antigo": "alert()",
+    "Atual": "Custom modal dialogs",
+    "Quando": "Para melhorar a usabilidade e a experiência do usuário",
+    "Local de Uso": "Mensagens e interações de usuário",
+    "Motivo Específico": "Melhorar a experiência do usuário com interfaces modernas",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de mensagens ou interações de usuário"
+  },
+  {
+    "Antigo": "arr.concat(arr2);",
+    "Atual": "const merged = [...arr, ...arr2];",
+    "Quando": "Para mesclar arrays",
+    "Local de Uso": "Manipulação de arrays",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de mesclar arrays"
+  },
+  {
+    "Antigo": "arr.filter(Boolean);",
+    "Atual": "arr.filter(el => el);",
+    "Quando": "Para remover valores falsy de arrays",
+    "Local de Uso": "Manipulação de arrays",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de remover valores falsy"
+  },
+  {
+    "Antigo": "arr.map(el => el * 2);",
+    "Atual": "arr.map(el => el * 2).filter(el => el > 2);",
+    "Quando": "Para transformar e filtrar arrays",
+    "Local de Uso": "Manipulação de arrays",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de transformar e filtrar arrays"
+  },
+  {
+    "Antigo": "arr[-1];",
+    "Atual": "arr.at(-1);",
+    "Quando": "Para acessar elementos de arrays com índices negativos",
+    "Local de Uso": "Manipulação de arrays",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de acessar elementos de arrays com índices negativos"
+  },
+  {
+    "Antigo": "array.flat();",
+    "Atual": "const flatArray = array.flat();",
+    "Quando": "Para aplanar arrays aninhados",
+    "Local de Uso": "Manipulação de arrays",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de aplanar arrays"
+  },
+  {
+    "Antigo": "array.flatMap(x => [x * 2]);",
+    "Atual": "const flatMappedArray = array.flatMap(x => [x, x * 2]);",
+    "Quando": "Para transformar e aplanar arrays",
+    "Local de Uso": "Manipulação de arrays",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de transformar e aplanar arrays"
+  },
+  {
+    "Antigo": "Array.prototype.concat",
+    "Atual": "Spread operator (...)",
+    "Quando": "Para combinar arrays de forma mais eficiente e legível",
+    "Local de Uso": "Combinar objetos e arrays",
+    "Motivo Específico": "Sintaxe mais concisa e legível para combinar objetos e arrays",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de combinar arrays"
+  },
+  {
+    "Antigo": "Array.prototype.findIndex",
+    "Atual": "Array.prototype.find",
+    "Quando": "Para encontrar o primeiro item que satisfaça uma condição de forma mais eficiente e legível",
+    "Local de Uso": "Encontrar item em um array",
+    "Motivo Específico": "Forma mais eficiente e legível de encontrar o primeiro item que satisfaça uma condição",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de encontrar itens em um array"
+  },
+  {
+    "Antigo": "Array.prototype.map",
+    "Atual": "Array.from",
+    "Quando": "Para criar arrays a partir de objetos iteráveis ou pseudo-arrays",
+    "Local de Uso": "Criação de arrays a partir de objetos iteráveis",
+    "Motivo Específico": "Melhor suporte a objetos pseudo-arrays e iteráveis",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de criar arrays a partir de objetos iteráveis"
+  },
+  {
+    "Antigo": "Array.prototype.reduce para somar valores",
+    "Atual": "Array.prototype.reduce com arrow function",
+    "Quando": "Para melhorar a clareza e concisão ao usar a função de redução",
+    "Local de Uso": "Soma de valores em arrays",
+    "Motivo Específico": "Forma mais clara e concisa de usar a função de redução",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de somar valores em arrays"
+  },
+  {
+    "Antigo": "Array.prototype.splice para remover itens",
+    "Atual": "Array.prototype.filter",
+    "Quando": "Para remover itens de um array de forma mais clara e imutável",
+    "Local de Uso": "Remover itens de um array",
+    "Motivo Específico": "Forma mais clara e imutável de remover itens de um array",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de remover itens de um array"
+  },
+  {
+    "Antigo": "Atomics.wait(typedArray, index, value);",
+    "Atual": "Atomics.waitSync(typedArray, index, value);",
+    "Quando": "Para operações de espera síncrona em ambientes de multithreading",
+    "Local de Uso": "Sincronização de threads",
+    "Motivo Específico": "Melhor controle sobre a sincronização",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de sincronização de threads"
+  },
+  {
+    "Antigo": "Callback hell",
+    "Atual": "Promises ou async/await",
+    "Quando": "Para evitar aninhamento excessivo de callbacks e melhorar a legibilidade do código",
+    "Local de Uso": "Operações assíncronas complexas",
+    "Motivo Específico": "Melhor legibilidade e manejo de fluxos assíncronos",
+    "Quando Não Usar Nenhuma": "Quando não há operações assíncronas a serem realizadas"
+  },
+  {
+    "Antigo": "Callbacks",
+    "Atual": "Promises ou async/await",
+    "Quando": "Para lidar com operações assíncronas de forma mais legível e gerenciável",
+    "Local de Uso": "Operações assíncronas complexas",
+    "Motivo Específico": "Melhor legibilidade e manejo de fluxos assíncronos",
+    "Quando Não Usar Nenhuma": "Quando não há operações assíncronas a serem realizadas"
+  },
+  {
+    "Antigo": "class MyClass { constructor() { this.myField = 'value'; } }",
+    "Atual": "class MyClass { myField = 'value'; }",
+    "Quando": "Para definir campos de classe de forma mais concisa",
+    "Local de Uso": "Declaração de classes",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de definir campos de classe"
+  },
+  {
+    "Antigo": "class MyClass { constructor() { this.myField = 'value'; } }",
+    "Atual": "class MyClass { static myField = 'value'; }",
+    "Quando": "Para definir campos estáticos de classe",
+    "Local de Uso": "Declaração de classes",
+    "Motivo Específico": "Melhor organização e acessibilidade de dados estáticos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de definir campos estáticos"
+  },
+  {
+    "Antigo": "console.log",
+    "Atual": "Logging frameworks",
+    "Quando": "Para um logging mais robusto e gerenciável em produção",
+    "Local de Uso": "Aplicações em produção",
+    "Motivo Específico": "Logging mais robusto e gerenciável",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de logging em produção"
+  },
+  {
+    "Antigo": "const arr = [1, 2, 3]; const newArr = arr.map(x => x * 2);",
+    "Atual": "const newArr = arr.flatMap(x => [x, x * 2]);",
+    "Quando": "Para manipular arrays de forma eficiente",
+    "Local de Uso": "Manipulação de arrays",
+    "Motivo Específico": "Sintaxe mais eficiente e legível",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de manipular arrays"
+  },
+  {
+    "Antigo": "const arr = [1, 2, 3]; const newArr = arr.map(x => x * 2);",
+    "Atual": "const newArr = arr.flatMap(x => [x, x * 2]);",
+    "Quando": "Para transformar e aplanar arrays",
+    "Local de Uso": "Manipulação de arrays",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de transformar e aplanar arrays"
+  },
+  {
+    "Antigo": "const bigInt = BigInt(1234567890);",
+    "Atual": "const bigInt = 1234567890n;",
+    "Quando": "Para criar BigInts",
+    "Local de Uso": "Manipulação de números grandes",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de manipular números grandes"
+  },
+  {
+    "Antigo": "const data = { name: 'Alice', age: 25 }; const name = data.name; const age = data.age;",
+    "Atual": "const { name, age } = data;",
+    "Quando": "Para extrair valores de objetos de forma concisa",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de extrair valores"
+  },
+  {
+    "Antigo": "const entries = Object.keys(obj).map(key => [key, obj[key]]);",
+    "Atual": "const entries = Object.entries(obj);",
+    "Quando": "Para obter pares chave-valor de um objeto",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de obter pares chave-valor de objetos"
+  },
+  {
+    "Antigo": "const global = Function('return this')();",
+    "Atual": "globalThis;",
+    "Quando": "Para acessar o objeto global",
+    "Local de Uso": "Manipulação de escopo global",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de acessar o objeto global"
+  },
+  {
+    "Antigo": "const merged = Object.assign({}, obj1, obj2);",
+    "Atual": "const merged = { ...obj1, ...obj2 };",
+    "Quando": "Para mesclar objetos",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de mesclar objetos"
+  },
+  {
+    "Antigo": "const name = person.name; const age = person.age;",
+    "Atual": "const { name, age } = person;",
+    "Quando": "Para desestruturar objetos",
+    "Local de Uso": "Desestruturação de objetos",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de desestruturar objetos"
+  },
+  {
+    "Antigo": "const newArr = []; arr.forEach(item => newArr.push(item * 2));",
+    "Atual": "const newArr = arr.map(item => item * 2);",
+    "Quando": "Para transformar elementos de um array",
+    "Local de Uso": "Transformação de arrays",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de transformar arrays"
+  },
+  {
+    "Antigo": "const newObj = Object.assign({}, obj1, obj2);",
+    "Atual": "const newObj = { ...obj1, ...obj2 };",
+    "Quando": "Para clonar ou combinar objetos de forma eficiente",
+    "Local de Uso": "Manipulação de objetos, especialmente em funções de utilidade",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de clonar ou combinar objetos"
+  },
+  {
+    "Antigo": "const now = new Date();",
+    "Atual": "const now = Temporal.Now.plainDateTimeISO();",
+    "Quando": "Para manipulação moderna de datas e horas",
+    "Local de Uso": "Manipulação de datas e horas",
+    "Motivo Específico": "API mais robusta e coerente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de manipulação de datas e horas"
+  },
+  {
+    "Antigo": "const numbers = [1, 2, 3]; const reversed = numbers.reverse();",
+    "Atual": "const reversed = numbers.toReversed();",
+    "Quando": "Para reverter arrays sem modificar o original",
+    "Local de Uso": "Manipulação de arrays",
+    "Motivo Específico": "Evitar mutação do array original",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de reverter arrays"
+  },
+  {
+    "Antigo": "const obj = Object.assign({}, a, b);",
+    "Atual": "const obj = { ...a, ...b };",
+    "Quando": "Para mesclar objetos",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de mesclar objetos"
+  },
+  {
+    "Antigo": "const obj = { a: 1, b: 2 }; const copy = Object.assign({}, obj);",
+    "Atual": "const copy = { ...obj };",
+    "Quando": "Para copiar propriedades de objetos",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de copiar objetos"
+  },
+  {
+    "Antigo": "const obj = {}; if (!obj.prop) { obj.prop = 'default'; }",
+    "Atual": "obj.prop",
+    "Quando": "",
+    "Local de Uso": "= 'default';",
+    "Motivo Específico": "Para atribuir valores padrão",
+    "Quando Não Usar Nenhuma": "Atribuição de valores"
+  },
+  {
+    "Antigo": "const obj = {}; if (obj.a) { obj.a(); }",
+    "Atual": "obj.a?.();",
+    "Quando": "Para evitar erros de acesso a propriedades",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Sintaxe mais clara e segura",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de acessar propriedades"
+  },
+  {
+    "Antigo": "const path = 'C:\\\\path\\\\to\\\\file';",
+    "Atual": "const path = String.rawC:\\\\path\\\\to\\\\file;",
+    "Quando": "Para evitar processamento de escape sequences",
+    "Local de Uso": "Strings de caminho de arquivo, regex complexas",
+    "Motivo Específico": "Evita erros de escape e melhora a legibilidade",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de strings não processadas"
+  },
+  {
+    "Antigo": "const regex = /[a-zA-Z]/;",
+    "Atual": "const regex = /\\p{L}/u;",
+    "Quando": "Para correspondência de caracteres com propriedades Unicode",
+    "Local de Uso": "Manipulação de strings",
+    "Motivo Específico": "Aumenta a precisão na correspondência de padrões",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de correspondência de padrões complexos"
+  },
+  {
+    "Antigo": "const regex = new RegExp('pattern', 'flags');",
+    "Atual": "const regex = /pattern/flags;",
+    "Quando": "Para buscas avançadas em strings e correspondências complexas",
+    "Local de Uso": "Processamento de strings, validação de entradas",
+    "Motivo Específico": "Poderoso e flexível para correspondência de padrões",
+    "Quando Não Usar Nenhuma": "Quando simples correspondências de padrões são suficientes"
+  },
+  {
+    "Antigo": "const response = await fetch(url); const data = await response.json();",
+    "Atual": "const data = await fetch(url).then(response => response.json());",
+    "Quando": "Para simplificar chamadas de API assíncronas",
+    "Local de Uso": "Requisições HTTP assíncronas",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de fazer requisições HTTP"
+  },
+  {
+    "Antigo": "const str = ' Hello World '; str.trim();",
+    "Atual": "str.trimStart(); str.trimEnd();",
+    "Quando": "Para remover espaços em branco do início e do fim de strings",
+    "Local de Uso": "Manipulação de strings",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de remover espaços em branco"
+  },
+  {
+    "Antigo": "const str = '\\uD800'; const isWellFormed = /^[^\\uD800-\\uDFFF]$/u.test(str);",
+    "Atual": "const isWellFormed = str.isWellFormed();",
+    "Quando": "Para verificar se uma string está bem formada",
+    "Local de Uso": "Manipulação de strings",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de verificar strings"
+  },
+  {
+    "Antigo": "const str = 'abc'; const regex = /a/; const result = str.match(regex);",
+    "Atual": "const result = 'abc'.match(/a/);",
+    "Quando": "Para simplificar a busca de padrões em strings",
+    "Local de Uso": "Manipulação de strings",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de buscar padrões"
+  },
+  {
+    "Antigo": "const str = 'hello'; const chars = str.split('');",
+    "Atual": "const chars = [...str];",
+    "Quando": "Para dividir uma string em caracteres",
+    "Local de Uso": "Manipulação de strings",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de dividir strings em caracteres"
+  },
+  {
+    "Antigo": "const sym = Symbol('description');",
+    "Atual": "const sym = Symbol.for('description');",
+    "Quando": "Para compartilhar símbolos entre diferentes partes do código",
+    "Local de Uso": "Manipulação de símbolos",
+    "Motivo Específico": "Reutilização de símbolos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de compartilhar símbolos"
+  },
+  {
+    "Antigo": "const val = a",
+    "Atual": "",
+    "Quando": "b;",
+    "Local de Uso": "const val = a ?? b;",
+    "Motivo Específico": "Para atribuir valores padrão",
+    "Quando Não Usar Nenhuma": "Atribuição de valores"
+  },
+  {
+    "Antigo": "const value = (obj && obj.value)",
+    "Atual": "",
+    "Quando": "'default';",
+    "Local de Uso": "const value = obj?.value ?? 'default';",
+    "Motivo Específico": "Para atribuir valores padrão de forma mais segura",
+    "Quando Não Usar Nenhuma": "Atribuição de valores"
+  },
+  {
+    "Antigo": "const values = Object.keys(obj).map(key => obj[key]);",
+    "Atual": "const values = Object.values(obj);",
+    "Quando": "Para obter valores de um objeto",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de obter valores de objetos"
+  },
+  {
+    "Antigo": "const x = Math.max(a, b, c);",
+    "Atual": "const x = Math.max(...[a, b, c]);",
+    "Quando": "Para encontrar o valor máximo em um array",
+    "Local de Uso": "Manipulação de arrays",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de encontrar o valor máximo"
+  },
+  {
+    "Antigo": "document.body.scrollTop",
+    "Atual": "window.scrollY",
+    "Quando": "Para obter a posição de rolagem vertical de forma mais precisa e moderna",
+    "Local de Uso": "Obter posição de rolagem vertical",
+    "Motivo Específico": "Forma mais precisa e moderna de obter a posição de rolagem vertical",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de obter a posição de rolagem vertical"
+  },
+  {
+    "Antigo": "document.cookie",
+    "Atual": "localStorage ou sessionStorage",
+    "Quando": "Para armazenar dados no cliente de forma mais segura e gerenciável",
+    "Local de Uso": "Armazenamento de dados no cliente",
+    "Motivo Específico": "Armazenamento mais seguro e gerenciável de dados do cliente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de armazenar dados no cliente"
+  },
+  {
+    "Antigo": "document.createElement e appendChild",
+    "Atual": "Element.insertAdjacentHTML",
+    "Quando": "Para inserir elementos HTML de forma mais direta e eficiente",
+    "Local de Uso": "Inserção de HTML dinâmico",
+    "Motivo Específico": "Inserção mais eficiente e segura de conteúdo HTML",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de inserir HTML dinamicamente"
+  },
+  {
+    "Antigo": "document.createEvent",
+    "Atual": "new Event ou CustomEvent",
+    "Quando": "Para criar eventos personalizados de forma mais moderna e padronizada",
+    "Local de Uso": "Criação de eventos personalizados",
+    "Motivo Específico": "Forma mais moderna e padronizada de criar eventos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de criar eventos personalizados"
+  },
+  {
+    "Antigo": "document.execCommand('copy')",
+    "Atual": "navigator.clipboard.writeText",
+    "Quando": "Para copiar texto para a área de transferência de forma mais segura e moderna",
+    "Local de Uso": "Copiar texto para a área de transferência",
+    "Motivo Específico": "Forma mais segura e moderna de copiar texto para a área de transferência",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de copiar texto para a área de transferência"
+  },
+  {
+    "Antigo": "document.forms['formName']",
+    "Atual": "document.querySelector('form[name=\"formName\"]')",
+    "Quando": "Para selecionar formulários de forma mais moderna e flexível",
+    "Local de Uso": "Seleção de formulários",
+    "Motivo Específico": "Seleção de formulários de forma mais moderna e flexível",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de selecionar formulários"
+  },
+  {
+    "Antigo": "document.getElementById",
+    "Atual": "document.querySelector",
+    "Quando": "Para selecionar elementos DOM com mais flexibilidade e consistência",
+    "Local de Uso": "Seleção de elementos DOM",
+    "Motivo Específico": "Flexibilidade e consistência na seleção de elementos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de selecionar elementos DOM"
+  },
+  {
+    "Antigo": "document.write",
+    "Atual": "DOM manipulation methods",
+    "Quando": "Para evitar práticas inseguras e obsoletas de manipulação do DOM",
+    "Local de Uso": "Atualizações dinâmicas no DOM",
+    "Motivo Específico": "Evitar práticas obsoletas e inseguras como document.write",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de manipular o DOM"
+  },
+  {
+    "Antigo": "document.write('Hello World');",
+    "Atual": "document.getElementById('example').textContent = 'Hello World';",
+    "Quando": "Para evitar práticas inseguras e obsoletas de manipulação do DOM",
+    "Local de Uso": "Atualizações dinâmicas no DOM",
+    "Motivo Específico": "Evitar práticas obsoletas e inseguras como document.write",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de manipular o DOM"
+  },
+  {
+    "Antigo": "element.attachEvent",
+    "Atual": "element.addEventListener",
+    "Quando": "Para adicionar eventos de forma mais padronizada e moderna",
+    "Local de Uso": "Adicionar eventos",
+    "Motivo Específico": "Adição de eventos de forma padronizada e moderna",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de adicionar eventos"
+  },
+  {
+    "Antigo": "element.children",
+    "Atual": "element.childNodes",
+    "Quando": "Para obter todos os nós filhos, incluindo nós de texto e comentário",
+    "Local de Uso": "Obter todos os nós filhos",
+    "Motivo Específico": "Forma mais abrangente de obter todos os nós filhos, incluindo nós de texto e comentário",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de obter todos os nós filhos"
+  },
+  {
+    "Antigo": "element.className = '...'",
+    "Atual": "element.classList.add/remove/toggle",
+    "Quando": "Para manipular classes de elementos de forma mais eficiente e flexível",
+    "Local de Uso": "Manipulação de classes de elementos",
+    "Motivo Específico": "Sintaxe mais clara e eficiente para manipulação de classes",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de manipular classes de elementos"
+  },
+  {
+    "Antigo": "element.innerHTML += '...'",
+    "Atual": "element.insertAdjacentHTML",
+    "Quando": "Para adicionar HTML de forma mais eficiente e segura",
+    "Local de Uso": "Adicionar HTML dinâmico",
+    "Motivo Específico": "Forma mais eficiente e segura de adicionar HTML ao DOM",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de adicionar HTML dinamicamente"
+  },
+  {
+    "Antigo": "Element.offsetTop e Element.offsetLeft",
+    "Atual": "Element.getBoundingClientRect()",
+    "Quando": "Para obter informações de posição e tamanho de elementos de forma mais precisa",
+    "Local de Uso": "Obter informações de posição e tamanho de elementos",
+    "Motivo Específico": "Forma mais precisa e moderna de obter informações de posição e tamanho",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de obter informações de posição e tamanho"
+  },
+  {
+    "Antigo": "element.removeNode",
+    "Atual": "element.remove",
+    "Quando": "Para remover elementos do DOM de forma mais moderna e suportada",
+    "Local de Uso": "Remover elementos do DOM",
+    "Motivo Específico": "Método moderno e suportado para remover elementos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de remover elementos do DOM"
+  },
+  {
+    "Antigo": "element.scrollIntoView com opções padrão",
+    "Atual": "element.scrollIntoView({ behavior: 'smooth' })",
+    "Quando": "Para uma rolagem suave ao elemento",
+    "Local de Uso": "Rolagem suave ao elemento",
+    "Motivo Específico": "Melhorar a experiência do usuário com rolagem suave",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de rolar até um elemento"
+  },
+  {
+    "Antigo": "element.setAttribute('style', '...')",
+    "Atual": "element.style.property = '...'",
+    "Quando": "Para manipular estilos inline de forma mais clara e controlada",
+    "Local de Uso": "Manipulação de estilos inline",
+    "Motivo Específico": "Forma mais clara e controlada de manipular estilos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de manipular estilos"
+  },
+  {
+    "Antigo": "element.setAttribute('style', 'color: red');",
+    "Atual": "element.style.color = 'red';",
+    "Quando": "Para manipular estilos inline de forma mais clara e controlada",
+    "Local de Uso": "Manipulação de estilos inline",
+    "Motivo Específico": "Forma mais clara e controlada de manipular estilos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de manipular estilos"
+  },
+  {
+    "Antigo": "eval()",
+    "Atual": "Secure parsing functions",
+    "Quando": "Para evitar vulnerabilidades de segurança",
+    "Local de Uso": "Avaliação de código dinamicamente",
+    "Motivo Específico": "Evitar vulnerabilidades de segurança associadas ao uso de eval",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de avaliação de código dinamicamente"
+  },
+  {
+    "Antigo": "event.srcElement",
+    "Atual": "event.target",
+    "Quando": "Para acessar o elemento que disparou o evento de forma mais consistente",
+    "Local de Uso": "Acesso ao elemento que disparou o evento",
+    "Motivo Específico": "Acesso consistente e confiável ao alvo do evento",
+    "Quando Não Usar Nenhuma": "Quando não há eventos sendo disparados"
+  },
+  {
+    "Antigo": "for (const value of asyncIterable) { await someFunction(value); }",
+    "Atual": "for await (const value of asyncIterable) { await someFunction(value); }",
+    "Quando": "Para iterar sobre dados assíncronos",
+    "Local de Uso": "Funções assíncronas que processam listas de dados",
+    "Motivo Específico": "Simplifica o código e melhora a legibilidade ao lidar com promessas em loop",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de iteração assíncrona"
+  },
+  {
+    "Antigo": "for loops",
+    "Atual": "for...of ou forEach",
+    "Quando": "Para iterar sobre arrays de forma mais clara e moderna",
+    "Local de Uso": "Iterações sobre arrays",
+    "Motivo Específico": "Sintaxe mais clara e moderna, melhorando a legibilidade",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de iterar sobre arrays"
+  },
+  {
+    "Antigo": "for...in",
+    "Atual": "Object.keys/values/entries",
+    "Quando": "Para iterar sobre as propriedades de objetos de forma mais segura",
+    "Local de Uso": "Iterar sobre propriedades de objetos",
+    "Motivo Específico": "Iteração mais segura e controlada sobre propriedades de objetos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de iterar sobre as propriedades de objetos"
+  },
+  {
+    "Antigo": "for...in para arrays",
+    "Atual": "for...of",
+    "Quando": "Para iterar sobre elementos de um array de forma mais segura e eficiente",
+    "Local de Uso": "Iterar sobre elementos de um array",
+    "Motivo Específico": "Iteração mais segura e eficiente sobre arrays",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de iterar sobre elementos de um array"
+  },
+  {
+    "Antigo": "function",
+    "Atual": "Arrow functions (=>)",
+    "Quando": "Para funções anônimas e manter o contexto do this",
+    "Local de Uso": "Funções anônimas e callbacks",
+    "Motivo Específico": "Manter o contexto de this e sintaxe mais concisa",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de criar funções dinâmicas"
+  },
+  {
+    "Antigo": "function getData() { return new Promise((resolve, reject) => { ... }); }",
+    "Atual": "async function getData() { ... }",
+    "Quando": "Para lidar com promessas de forma mais simples e legível",
+    "Local de Uso": "Funções assíncronas",
+    "Motivo Específico": "Simplificação de promessas",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de operações assíncronas"
+  },
+  {
+    "Antigo": "function resolveAfter2Seconds(x) { return new Promise(resolve => setTimeout(() => resolve(x), 2000)); }",
+    "Atual": "async function resolveAfter2Seconds(x) { return await new Promise(resolve => setTimeout(() => resolve(x), 2000)); }",
+    "Quando": "Para lidar com operações assíncronas de forma mais legível e gerenciável",
+    "Local de Uso": "Operações assíncronas complexas",
+    "Motivo Específico": "Melhor legibilidade e manejo de fluxos assíncronos",
+    "Quando Não Usar Nenhuma": "Quando não há operações assíncronas a serem realizadas"
+  },
+  {
+    "Antigo": "function sum(a, b) { return a + b; }",
+    "Atual": "const sum = (a, b) => a + b;",
+    "Quando": "Para funções anônimas e manter o contexto do this",
+    "Local de Uso": "Funções anônimas e callbacks",
+    "Motivo Específico": "Manter o contexto de this e sintaxe mais concisa",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de criar funções dinâmicas"
+  },
+  {
+    "Antigo": "function.call(context, arg1, arg2)",
+    "Atual": "function.apply(context, [arg1, arg2])",
+    "Quando": "Para passar um array de argumentos de forma mais eficiente e clara",
+    "Local de Uso": "Passar arrays como argumentos",
+    "Motivo Específico": "Sintaxe mais legível para passar múltiplos argumentos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de passar múltiplos argumentos"
+  },
+  {
+    "Antigo": "Function.prototype.apply",
+    "Atual": "Spread operator (...)",
+    "Quando": "Para passar arrays como argumentos de funções de forma mais legível",
+    "Local de Uso": "Passar arrays como argumentos",
+    "Motivo Específico": "Sintaxe mais legível para passar múltiplos argumentos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de passar múltiplos argumentos"
+  },
+  {
+    "Antigo": "Function.prototype.bind",
+    "Atual": "Arrow functions (=>)",
+    "Quando": "Para preservar o contexto de this de forma mais concisa e legível",
+    "Local de Uso": "Preservar contexto de this",
+    "Motivo Específico": "Sintaxe mais concisa e legível para funções anônimas",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de preservar o contexto de this"
+  },
+  {
+    "Antigo": "Funções IIFE para escopo",
+    "Atual": "Módulos ES6 (import/export)",
+    "Quando": "Para melhor modularização e reutilização de código, mantendo o escopo privado",
+    "Local de Uso": "Modularização e escopo privado",
+    "Motivo Específico": "Melhor modularização e reutilização de código",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de modularização de código"
+  },
+  {
+    "Antigo": "getElementsByClassName",
+    "Atual": "querySelectorAll",
+    "Quando": "Para selecionar elementos DOM com mais flexibilidade e compatibilidade moderna",
+    "Local de Uso": "Seleção de elementos DOM",
+    "Motivo Específico": "Seleção de elementos com mais flexibilidade e compatibilidade moderna",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de selecionar elementos DOM"
+  },
+  {
+    "Antigo": "HTMLElement.style.cssText",
+    "Atual": "CSSStyleDeclaration (ex. element.style.property = 'value')",
+    "Quando": "Para manipular estilos inline de forma mais controlada e eficiente",
+    "Local de Uso": "Manipulação de estilos inline",
+    "Motivo Específico": "Forma mais controlada e eficiente de manipulação de estilos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de manipular estilos inline"
+  },
+  {
+    "Antigo": "if (a == b) { ... }",
+    "Atual": "if (a === b) { ... }",
+    "Quando": "Para comparações rigorosas em JavaScript",
+    "Local de Uso": "Comparações rigorosas",
+    "Motivo Específico": "Evitar erros de tipo nas comparações em JavaScript",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de comparações rigorosas"
+  },
+  {
+    "Antigo": "if (array.indexOf(element) !== -1) { ... }",
+    "Atual": "if (array.includes(element)) { ... }",
+    "Quando": "Para verificar se um array contém um elemento",
+    "Local de Uso": "Verificação de elementos em arrays",
+    "Motivo Específico": "Sintaxe mais simples e legível",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de verificar elementos em arrays"
+  },
+  {
+    "Antigo": "if (obj && obj.prop) { ... }",
+    "Atual": "if (obj?.prop) { ... }",
+    "Quando": "Para verificar propriedades de objetos",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Sintaxe mais clara e segura",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de verificar propriedades"
+  },
+  {
+    "Antigo": "if (obj.hasOwnProperty('key')) { ... }",
+    "Atual": "if (Object.hasOwn(obj, 'key')) { ... }",
+    "Quando": "Para verificar a propriedade de um objeto",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Verificação mais segura de propriedades",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de verificar propriedades"
+  },
+  {
+    "Antigo": "if (obj.hasOwnProperty('prop')) { ... }",
+    "Atual": "if (Object.prototype.hasOwnProperty.call(obj, 'prop')) { ... }",
+    "Quando": "Para verificar a propriedade de um objeto",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Verificação mais segura de propriedades",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de verificar propriedades de objetos"
+  },
+  {
+    "Antigo": "if (obj.hasOwnProperty('prop')) { ... }",
+    "Atual": "if (Object.hasOwn(obj, 'prop')) { ... }",
+    "Quando": "Para verificar a propriedade de um objeto de forma mais segura",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Verificação mais segura de propriedades",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de verificar propriedades"
+  },
+  {
+    "Antigo": "if (str.startsWith('abc')) { ... }",
+    "Atual": "str.padStart(10, '0');",
+    "Quando": "Para preencher strings",
+    "Local de Uso": "Manipulação de strings",
+    "Motivo Específico": "Melhor formatação de strings",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de preencher strings"
+  },
+  {
+    "Antigo": "Inline styles",
+    "Atual": "CSS classes",
+    "Quando": "Para separar estrutura e estilo, melhorar manutenção e performance",
+    "Local de Uso": "Aplicação de estilos",
+    "Motivo Específico": "Separar estrutura HTML e estilo CSS, melhorar manutenção e performance",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de alterar estilos"
+  },
+  {
+    "Antigo": "innerHTML",
+    "Atual": "textContent",
+    "Quando": "Para inserir texto e evitar vulnerabilidades de XSS",
+    "Local de Uso": "Elementos de texto estático",
+    "Motivo Específico": "Evitar vulnerabilidades de XSS ao inserir texto puro",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de inserir texto dinamicamente"
+  },
+  {
+    "Antigo": "JSON.parse(JSON.stringify(obj)) para clonar objetos",
+    "Atual": "structuredClone(obj)",
+    "Quando": "Para clonar objetos de forma mais eficiente e segura",
+    "Local de Uso": "Clonar objetos",
+    "Motivo Específico": "Clonagem de objetos de forma eficiente e segura",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de clonar objetos"
+  },
+  {
+    "Antigo": "let xhr = new XMLHttpRequest();",
+    "Atual": "fetch(url).then(response => response.json()).then(data => console.log(data));",
+    "Quando": "Para fazer requisições assíncronas de forma mais simples e moderna",
+    "Local de Uso": "Requisições HTTP assíncronas",
+    "Motivo Específico": "Simplicidade e promessa embutida para melhor gerenciamento de requisições",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de fazer requisições HTTP"
+  },
+  {
+    "Antigo": "Manipulação de classes com strings",
+    "Atual": "Manipulação de classes com classList",
+    "Quando": "Para adicionar, remover e alternar classes de forma mais eficiente e sem riscos de erros de digitação",
+    "Local de Uso": "Manipulação de classes",
+    "Motivo Específico": "Adicionar, remover e alternar classes de forma mais eficiente e segura",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de manipular classes"
+  },
+  {
+    "Antigo": "Math.pow(2, 3);",
+    "Atual": "2 ** 3;",
+    "Quando": "Para realizar operações de potência",
+    "Local de Uso": "Cálculos matemáticos",
+    "Motivo Específico": "Sintaxe mais concisa",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de cálculos exponenciais"
+  },
+  {
+    "Antigo": "Math.pow(2, 53) - 1;",
+    "Atual": "Number.MAX_SAFE_INTEGER;",
+    "Quando": "Para obter o maior número inteiro seguro",
+    "Local de Uso": "Manipulação de números",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de manipular números grandes"
+  },
+  {
+    "Antigo": "Math.pow(x, y);",
+    "Atual": "x ** y;",
+    "Quando": "Para realizar operações matemáticas de potência",
+    "Local de Uso": "Cálculos matemáticos",
+    "Motivo Específico": "Sintaxe mais concisa e legível",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de cálculos exponenciais"
+  },
+  {
+    "Antigo": "Math.random()",
+    "Atual": "Cryptographically secure methods",
+    "Quando": "Para gerar números aleatórios seguros (ex. crypto.getRandomValues())",
+    "Local de Uso": "Geração de números aleatórios em segurança",
+    "Motivo Específico": "Garantir segurança criptográfica, por exemplo, com crypto.getRandomValues()",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de geração de números aleatórios"
+  },
+  {
+    "Antigo": "navigator.getUserMedia",
+    "Atual": "navigator.mediaDevices.getUserMedia",
+    "Quando": "Para acessar a câmera e o microfone de forma mais segura e moderna",
+    "Local de Uso": "Acesso à câmera e microfone",
+    "Motivo Específico": "Forma mais segura e moderna de acessar mídia do dispositivo",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de acessar a câmera e o microfone"
+  },
+  {
+    "Antigo": "new Date().getTime()",
+    "Atual": "Date.now()",
+    "Quando": "Para obter o timestamp atual de forma mais direta e eficiente",
+    "Local de Uso": "Obter timestamp atual",
+    "Motivo Específico": "Forma mais direta e eficiente de obter o timestamp",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de obter o timestamp atual"
+  },
+  {
+    "Antigo": "new RegExp('pattern')",
+    "Atual": "Literal de expressão regular (/pattern/)",
+    "Quando": "Para criar expressões regulares de forma mais legível e eficiente",
+    "Local de Uso": "Criação de expressões regulares",
+    "Motivo Específico": "Sintaxe mais legível e eficiente para criar expressões regulares",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de criar expressões regulares"
+  },
+  {
+    "Antigo": "Object.assign",
+    "Atual": "Spread operator (...)",
+    "Quando": "Para copiar propriedades de objetos de forma mais concisa e legível",
+    "Local de Uso": "Copiar e combinar objetos e arrays",
+    "Motivo Específico": "Sintaxe mais concisa e legível para operações comuns",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de copiar ou combinar objetos e arrays"
+  },
+  {
+    "Antigo": "Object.entries(obj).forEach(([key, value]) => { obj[key] = value; });",
+    "Atual": "Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, value]));",
+    "Quando": "Para transformar pares chave-valor em um objeto",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de transformar pares chave-valor"
+  },
+  {
+    "Antigo": "Object.getOwnPropertyDescriptors(obj);",
+    "Atual": "Object.entries(obj).reduce((descriptors, [key, value]) => { descriptors[key] = { value }; return descriptors; }, {});",
+    "Quando": "Para obter descritores de propriedades",
+    "Local de Uso": "Manipulação de objetos",
+    "Motivo Específico": "Sintaxe mais eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de obter descritores de propriedades"
+  },
+  {
+    "Antigo": "Object.prototype.hasOwnProperty",
+    "Atual": "Object.hasOwn",
+    "Quando": "Para verificar a propriedade de um objeto de forma mais segura e moderna",
+    "Local de Uso": "Verificar propriedade de objeto",
+    "Motivo Específico": "Verificação mais segura e moderna de propriedades de objetos",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de verificar propriedades de objetos"
+  },
+  {
+    "Antigo": "Promise.resolve().then(() => { ... });",
+    "Atual": "async () => { ... }",
+    "Quando": "Para operações assíncronas",
+    "Local de Uso": "Funções assíncronas",
+    "Motivo Específico": "Simplificação de operações assíncronas",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de operações assíncronas"
+  },
+  {
+    "Antigo": "promise.then(() => { /* success / }).catch(() => { / error / }).finally(() => { / always */ });",
+    "Atual": "promise.finally(() => { /* always */ });",
+    "Quando": "Para garantir que ações de limpeza sejam executadas independentemente do resultado da promessa",
+    "Local de Uso": "Qualquer lugar onde promessas são usadas e necessitam de um bloco final de limpeza",
+    "Motivo Específico": "Reduz a duplicação de código",
+    "Quando Não Usar Nenhuma": "Quando não há ações de limpeza necessárias após a promessa"
+  },
+  {
+    "Antigo": "require()",
+    "Atual": "import/export",
+    "Quando": "Para modularização em JavaScript moderno (ES6+)",
+    "Local de Uso": "Modularização de código JavaScript",
+    "Motivo Específico": "Melhor reutilização e manutenção de código em JavaScript moderno (ES6+)",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de modularização de código"
+  },
+  {
+    "Antigo": "setInterval",
+    "Atual": "requestAnimationFrame",
+    "Quando": "Para animações mais suaves e eficientes, sincronizadas com a taxa de atualização da tela",
+    "Local de Uso": "Animações",
+    "Motivo Específico": "Animações mais suaves e eficientes, sincronizadas com a taxa de atualização da tela",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de animações"
+  },
+  {
+    "Antigo": "SQL Queries sem preparação",
+    "Atual": "Prepared Statements",
+    "Quando": "Para prevenir injeções SQL",
+    "Local de Uso": "Consultas SQL dinâmicas",
+    "Motivo Específico": "Prevenir injeções SQL e melhorar a segurança",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de consultas SQL dinâmicas"
+  },
+  {
+    "Antigo": "String concatenation",
+    "Atual": "Template literals",
+    "Quando": "Para construir strings de forma mais eficiente e legível",
+    "Local de Uso": "Construção de strings complexas",
+    "Motivo Específico": "Sintaxe mais legível e eficiente para interpolação de strings",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de construção de strings complexas"
+  },
+  {
+    "Antigo": "String.prototype.match",
+    "Atual": "RegExp.prototype.test",
+    "Quando": "Para testar uma string contra uma expressão regular de forma mais eficiente",
+    "Local de Uso": "Testar strings contra expressões regulares",
+    "Motivo Específico": "Forma mais eficiente e legível de testar strings",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de testar strings contra expressões regulares"
+  },
+  {
+    "Antigo": "switch (response.status) { case 200: handleSuccess(); break; case 404: handleNotFound(); break; default: handleError(); }",
+    "Atual": "match (response.status) { when 200 -> handleSuccess(), when 404 -> handleNotFound(), when _ -> handleError() }",
+    "Quando": "Para lógica condicional complexa",
+    "Local de Uso": "Controle de fluxo",
+    "Motivo Específico": "Sintaxe mais clara e menos propensa a erros",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de lógica condicional complexa"
+  },
+  {
+    "Antigo": "try { ... } catch (e) { ... }",
+    "Atual": "try { ... } catch { ... }",
+    "Quando": "Para simplificar blocos try-catch",
+    "Local de Uso": "Tratamento de exceções",
+    "Motivo Específico": "Sintaxe mais clara e eficiente",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de tratamento de exceções"
+  },
+  {
+    "Antigo": "try { ... } catch (error) { console.error(error); }",
+    "Atual": "try { ... } catch (error) { console.error('An error occurred:', error); }",
+    "Quando": "Para adicionar contexto a erros",
+    "Local de Uso": "Tratamento de exceções",
+    "Motivo Específico": "Melhorar a depuração e rastreamento de erros",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de tratamento de exceções"
+  },
+  {
+    "Antigo": "try...catch",
+    "Atual": "Optional chaining (?.)",
+    "Quando": "Para acessar propriedades de objetos sem necessidade de try...catch",
+    "Local de Uso": "Acesso a propriedades de objetos",
+    "Motivo Específico": "Evitar erros ao acessar propriedades inexistentes",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de acessar propriedades de objetos"
+  },
+  {
+    "Antigo": "try...catch sem finally",
+    "Atual": "try...catch...finally",
+    "Quando": "Para garantir a execução de código de limpeza ou finalização, independentemente do sucesso ou falha da operação",
+    "Local de Uso": "Gerenciamento de exceções",
+    "Motivo Específico": "Garantir a execução de código de limpeza ou finalização",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de tratamento de exceções"
+  },
+  {
+    "Antigo": "Uso de eval para executar código dinamicamente",
+    "Atual": "Function constructor ou safer parsing methods",
+    "Quando": "Para evitar vulnerabilidades de segurança associadas ao eval",
+    "Local de Uso": "Avaliação de código dinamicamente",
+    "Motivo Específico": "Evitar vulnerabilidades de segurança associadas ao uso de eval",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de avaliação de código dinamicamente"
+  },
+  {
+    "Antigo": "var",
+    "Atual": "let ou const",
+    "Quando": "Para declarar variáveis em ES6+; const para constantes, let para variáveis mutáveis",
+    "Local de Uso": "Declaração de variáveis dentro de blocos ou funções",
+    "Motivo Específico": "Escopo de bloco para let e constantes imutáveis com const",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de declarar novas variáveis"
+  },
+  {
+    "Antigo": "var x = 10;",
+    "Atual": "let x = 10; const y = 20;",
+    "Quando": "Para declarar variáveis em ES6+",
+    "Local de Uso": "Declaração de variáveis dentro de blocos ou funções",
+    "Motivo Específico": "Escopo de bloco para let e constantes imutáveis com const",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de declarar novas variáveis"
+  },
+  {
+    "Antigo": "window.location.href para redirecionamento",
+    "Atual": "window.location.assign ou window.location.replace",
+    "Quando": "Para redirecionamentos, com assign adicionando uma entrada no histórico e replace substituindo a atual",
+    "Local de Uso": "Redirecionamentos",
+    "Motivo Específico": "assign para adicionar ao histórico, replace para substituir a entrada atual",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de redirecionar"
+  },
+  {
+    "Antigo": "window.onload",
+    "Atual": "DOMContentLoaded",
+    "Quando": "Para garantir que o DOM esteja totalmente carregado antes da execução",
+    "Local de Uso": "Scripts que manipulam o DOM",
+    "Motivo Específico": "Garantir que o DOM esteja totalmente carregado antes da execução",
+    "Quando Não Usar Nenhuma": "Quando não há scripts que manipulam o DOM"
+  },
+  {
+    "Antigo": "XMLHttpRequest",
+    "Atual": "fetch",
+    "Quando": "Para fazer requisições assíncronas de forma mais simples e moderna",
+    "Local de Uso": "Requisições HTTP assíncronas",
+    "Motivo Específico": "Simplicidade e promessa embutida para melhor gerenciamento de requisições",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de fazer requisições HTTP"
+  },
+  {
+    "Antigo": "XMLHttpRequest para requisições assíncronas",
+    "Atual": "async/await com fetch",
+    "Quando": "Para simplificar a escrita de código assíncrono e melhorar a legibilidade",
+    "Local de Uso": "Requisições HTTP assíncronas",
+    "Motivo Específico": "Simplificar escrita de código assíncrono e melhorar legibilidade",
+    "Quando Não Usar Nenhuma": "Quando não há necessidade de fazer requisições HTTP"
+  }
+]
