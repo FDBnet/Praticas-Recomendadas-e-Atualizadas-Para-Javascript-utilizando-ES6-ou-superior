@@ -14,7 +14,7 @@ A tabela apresenta as práticas recomendadas para substituir práticas antigas p
 - Clone o repositório para o seu ambiente local:
 
 ```sh
-git clone https://github.com/FDBnet/Praticas-Recomendadas-e-Atualizadas-Para-Javascript-do-ES6-ao-ES15-em-2024.git
+git clone https://github.com/FDBnet/Praticas-Recomendadas-e-Atualizadas-Para-Javascript-utilizando-ES6-ou-superior.git
 ```
 
 - Ou abra o arquivo HTML *praticas-recomendadas-em-JS-correto.html* no seu navegador para visualizar a tabela de melhores práticas.
